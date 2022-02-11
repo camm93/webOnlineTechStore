@@ -2,14 +2,11 @@
 
 API Gateway using <a href="https://www.apollographql.com/docs/apollo-server/">Apollo Server</a>, <a href="https://graphql.org/">GraphQL</a> and JavaScript
 
-## Overall Project Architecture
-![Microservice architecture](https://github.com/camm93/TechOnlineShop-api-gateway/blob/main/ArquitecturaFinal.jpeg)
-
-### Preview of APIGateway using Apollo Server + GraphQL
+## Preview of APIGateway using Apollo Server + GraphQL
 Just a quick glance to the APIGateway interface on Apollo Server.
 GraphQL API to manage the User and Products microservices written in Django and SpringBoot, respectively.
 
-![APIGateway preview](https://github.com/camm93/TechOnlineShop-api-gateway/blob/main/ApolloServer_APIGateway.PNG)
+![APIGateway preview](https://github.com/camm93/webOnlineTechStore/blob/main/TechStore-api-gateway/ApolloServer_APIGateway.PNG)
 
 
 ## Some of the technologies used in this component include:
