@@ -4,7 +4,7 @@ The two microservices and API Gateway include a short description in their respe
 
 Click on the image below to watch a brief explanation of this personal project. 
 
-<a href="https://www.youtube.com/watch?v=EZxEW6VZO8U&list=PLUiMsSYMoVSO5IOUzM-dZiSkNLT7gP3MI&index=1" target="_blank"><img src="https://github.com/camm93/TechOnlineShop-frontend/blob/main/home.jpeg" width="500" height="400" border="20" /> </a>
+<a href="https://www.youtube.com/watch?v=EZxEW6VZO8U&list=PLUiMsSYMoVSO5IOUzM-dZiSkNLT7gP3MI&index=1" target="_blank"><img src="https://github.com/camm93/webOnlineTechStore/blob/main/TechStore-frontend/home.jpeg" width="500" height="400" border="20" /> </a>
 
 
 ## Some of the technologies used in this component include:
