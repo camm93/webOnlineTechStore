@@ -3,7 +3,7 @@
 This is an example of a microservice for products using <a href="https://www.java.com/es/">Java</a>, <a href="https://spring.io/projects/spring-boot">Spring Boot</a> FrameWork and <a href="https://www.mongodb.com/es">MongoDB</a>.
 
 This microservice is part of a bigger project about an e-commerce that comprises the following components and technologies:
-<img src="https://github.com/camm93/TechOnlineShop-backend_auth/blob/main/HerramientasUsadas.PNG" alt="Microservice Architecture and technologies">
+<img src="https://github.com/camm93/webOnlineTechStore/blob/main/TechStore-backend_auth/HerramientasUsadas.PNG" alt="Microservice Architecture and technologies">
 
 ## Some of the technologies used in this microservice include:
 - Java <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/java/java.png" />
