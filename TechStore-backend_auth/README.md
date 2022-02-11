@@ -4,7 +4,7 @@ This is an example of a User authentication microservice using <a href="https://
 
 
 This microservice is part of a bigger project about an e-commerce that comprises the following components and technologies:
-<img src="https://github.com/camm93/TechOnlineShop-backend_auth/blob/main/HerramientasUsadas.PNG" alt="Microservice Architecture and technologies">
+<img src="https://github.com/camm93/webOnlineTechStore/blob/main/TechStore-backend_auth/HerramientasUsadas.PNG" alt="Microservice Architecture and technologies">
 
 
 ## Some of the technologies used in this microservice include:
