@@ -14,4 +14,4 @@ This microservice is part of a bigger project about an e-commerce that comprises
 - Docker <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" />
 - <a href="https://www.heroku.com/">Heroku</a> for deployment <img height="32" width="30" src="https://media-exp1.licdn.com/dms/image/C4E0BAQGmNZMDOpmMQg/company-logo_100_100/0/1519905610801?e=1651104000&v=beta&t=5b72d6j04plR4QJhtIKPUQo4cq_LRL6cyc-uQDB-ciE">
 - Git for version control <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" >
-- <a href="https://www.atlassian.com/es/software/jira">Jira - Atlassian</a>  <img height="32" width="30" src="https://media-exp1.licdn.com/dms/image/C5607AQHTS_kkf96AdQ/group-logo_image-shrink_92x92/0/1630997367610?e=1643389200&v=beta&t=ZK_EOk1lfRX-28QEKqBuyxQERM_yHua45244GuVGJ5s">
+- <a href="https://www.atlassian.com/es/software/jira">Jira - Atlassian</a> 
