@@ -16,7 +16,7 @@ It is in charge of handling any information and functionalities related to new o
 <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" /> &emsp;
 <img height="32" width="30" src="https://media-exp1.licdn.com/dms/image/C560BAQG4xGO7GA7ExA/company-logo_200_200/0/1625156273146?e=1651104000&v=beta&t=f9vsl5v48EzI3uXXR27anAvr7VWiCCkdzGznVkP2h9U" > &emsp;
 <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" /> &emsp;
-<img height="32" width="30" src="https://media-exp1.licdn.com/dms/image/C4E0BAQGmNZMDOpmMQg/company-logo_100_100/0/1519905610801?e=1651104000&v=beta&t=5b72d6j04plR4QJhtIKPUQo4cq_LRL6cyc-uQDB-ciE"> &emsp;
+<img height="32" width="30" src="https://user-images.githubusercontent.com/88005878/177156169-38326ae0-6a09-4e73-9e79-7ece170dcbba.PNG"> &emsp;
 <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" > &emsp;
 <a href="https://www.atlassian.com/es/software/jira">Jira - Atlassian</a> &emsp; [TablePlus](https://tableplus.com/)
 ## Microservice: Product BackEnd
@@ -42,7 +42,7 @@ API Gateway built using <a href="https://www.apollographql.com/docs/apollo-serve
 <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/e65ef46ef3e7bc457c93622f6a89fe8d3fd131d5/topics/graphql/graphql.png" > &emsp;
 <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" /> &emsp;
 <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" /> &emsp;
-<img height="32" width="30" src="https://media-exp1.licdn.com/dms/image/C4E0BAQGmNZMDOpmMQg/company-logo_100_100/0/1519905610801?e=1651104000&v=beta&t=5b72d6j04plR4QJhtIKPUQo4cq_LRL6cyc-uQDB-ciE"> &emsp;
+<img height="32" width="30" src="https://user-images.githubusercontent.com/88005878/177156169-38326ae0-6a09-4e73-9e79-7ece170dcbba.PNG"> &emsp;
 <img height="32" width="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" > &emsp;
 <a href="https://www.apollographql.com/docs/apollo-server/" >Apollo Server</a>
 
