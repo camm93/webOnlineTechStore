@@ -1,18 +1,18 @@
-from pathlib import Path
 from datetime import timedelta
+from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from environ import Env
+
+
+env = Env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+IS_LOCAL = env.bool(var='IS_LOCAL', default=False)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5s8ntg&gxb$op@63!t(pwy^z967#ly-t6wjmp#!9c%qhs53@-j'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = IS_LOCAL
 
 # Application definition
 
@@ -28,7 +28,7 @@ INSTALLED_APPS = [
 ]
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes = 10),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes = 30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days = 1),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 REST_FRAMEWORK = {
 	 'DEFAULT_PERMISSION_CLASSES': (
@@ -80,17 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'authProject.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-"""DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}"""
-
 DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -100,13 +88,8 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
         'TEST': {'MIRROR': 'default',} 
-
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -123,10 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -137,14 +116,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
