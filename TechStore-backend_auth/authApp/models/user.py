@@ -35,13 +35,14 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
 
     id = models.BigAutoField(primary_key=True)
-    username = models.CharField(verbose_name=_('Username'), max_length = 15, unique=True, field='username')
-    password = models.CharField(verbose_name=_('Password'), max_length = 256, field='password')
-    name = models.CharField(verbose_name=_('Name'), max_length = 30, field='name')
-    surname = models.CharField(verbose_name=_('Surname'), blank = True, null = True, max_length=50, field='surname')
-    email = models.EmailField(verbose_name=_('Email'), max_length = 100, field='email')
+    username = models.CharField(verbose_name=_('Username'), max_length = 15, unique=True)
+    password = models.CharField(verbose_name=_('Password'), max_length = 256)
+    name = models.CharField(verbose_name=_('Name'), max_length = 30)
+    surname = models.CharField(verbose_name=_('Surname'), blank = True, null = True, max_length=50)
+    email = models.EmailField(verbose_name=_('Email'), max_length = 100)
     created_at = models.DateTimeField(auto_now_add=True)
-    last_login = models.DecimalField(auto_now=True, blank=True)
+    last_login = models.DateTimeField(auto_now=True, blank=True)
+    is_staff = models.BooleanField(default=False)
 
     objects = UserManager()
     REQUIRED_FIELDS = ['email']
