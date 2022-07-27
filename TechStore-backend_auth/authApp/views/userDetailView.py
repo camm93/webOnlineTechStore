@@ -1,16 +1,21 @@
 from rest_framework import generics
+
 from authApp.models.user import User
 from authApp.serializers.userSerializer import UserSerializer
 
 
-class UserDetailView(generics.RetrieveAPIView):
-    queryset = User.objects.all()   # obtiene el modelo.   SELECT * FROM USERS
-    serializer_class = UserSerializer # serializa la info recibida
-
-class UserUpdateView(generics.UpdateAPIView):
+class BaseUserView:
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class UserDeleteView(generics.DestroyAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+
+class UserDetailView(BaseUserView, generics.RetrieveAPIView):
+    pass
+
+
+class UserUpdateView(BaseUserView, generics.UpdateAPIView):
+    pass
+
+
+class UserDeleteView(BaseUserView, generics.DestroyAPIView):
+    pass
