@@ -7,29 +7,36 @@ from django.utils.translation import gettext_lazy as _
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, username, password=None):
+    def create_user(self, username, password, **extra_fields):
         """
         Creates and saves a user with the given username and password.
         """
         if not username:
             raise ValueError(_('Users must have an username'))
 
-        user = self.model(username=username)
+        user = self.model(username=username, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, password):
+    def create_superuser(self, username, password, **extra_fields):
         """
         Creates and saves a superuser with the given username and password.
         """
-        user = self.create_user(username=username, password=password)
+        extra_fields.setdefault("is_staff", True) # Grants access to admin site
+        extra_fields.setdefault("is_superuser", True) # Provides all superuser permissions
+        extra_fields.setdefault("is_active", True) # use is_active = False instead of deleting accounts
 
-        user.is_admin = True
-        user.is_staff = True
-        user.is_superuser = True
-        user.save(using=self._db)
-        return user
+        if not extra_fields.get('is_staff'):
+            raise ValueError(_("Superusers must have is_staff = True"))
+
+        if not extra_fields.get('is_superuser'):
+            raise ValueError(_("Superusers must have is_superuser = True"))
+
+        if not extra_fields.get('is_active'):
+            raise ValueError(_("Superusers must have is_active = True"))
+
+        return self.create_user(username, password, **extra_fields)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -43,14 +50,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     created_at = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True, blank=True)
     is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     objects = UserManager()
-    REQUIRED_FIELDS = ['email']
     USERNAME_FIELD = 'username'
 
     def save(self, **kwargs):
-        some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
-        self.password = make_password(self.password, some_salt)
+        if not self.is_staff:
+            self.password = make_password(self.password)
         super().save(**kwargs)
 
     def __str__(self):
