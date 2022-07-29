@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
@@ -18,3 +19,9 @@ urlpatterns = [
     path('user/', include(user_patterns)),
     path('verifyToken/', views.VerifyTokenView.as_view()),
 ]
+
+if settings.DEBUG and not settings.TESTING:
+    import debug_toolbar
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls))
+    ]

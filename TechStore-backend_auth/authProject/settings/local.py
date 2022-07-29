@@ -14,8 +14,7 @@ IS_LOCAL = env.bool(var='IS_LOCAL', default=False)
 SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = IS_LOCAL
-
-# Application definition
+TESTING = False
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -24,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "debug_toolbar",
     'rest_framework',
     'authApp',
 ]
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 REST_FRAMEWORK = {
@@ -81,16 +82,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'authProject.wsgi.application'
 
 DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'auth_ms_proj',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'TEST': {'MIRROR': 'default',} 
-    }
+    'default': env.db("PRIMARY_DATABASE_URL")
 }
+DATABASES['default']['CONN_MAX_AGE'] = 600
+DATABASES['default']['TEST'] = {'MIRROR': 'default',}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -123,3 +119,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import django_heroku
 django_heroku.settings(locals())
+
+INTERNAL_IPS = ["127.0.0.1"]
