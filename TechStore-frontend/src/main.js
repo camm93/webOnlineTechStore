@@ -1,12 +1,13 @@
-import { createApp }    from 'vue'
-import App              from './App.vue'
-import router           from './router'
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
 import { createApolloProvider } from '@vue/apollo-option'
 import { setContext } from 'apollo-link-context'
 
+
 const httpLink = createHttpLink({
-    uri: 'https://mintic-c4-proj-apigateway.herokuapp.com/',
+    uri: "https://mintic-c4-proj-apigateway.herokuapp.com/",
 })
 
 const authLink = setContext((_, { headers }) => {

@@ -1,5 +1,7 @@
 {
   "name": "frontend",
+  "author": "Cristian Murillo",
+  "homepage": "https://mintic-c4-proj-frontend.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,6 +15,7 @@
     "apollo-link-context": "^1.0.20",
     "core-js": "^3.6.5",
     "deps": "^1.0.0",
+    "dotenv": "^16.0.1",
     "graphql": "^16.1.0",
     "graphql-tag": "^2.12.6",
     "jwt-decode": "^3.1.2",
