@@ -1,4 +1,6 @@
+require("dotenv").config();
+
 module.exports = {
-    auth_api_url : 'https://mintic-c4-proj-auth-be.herokuapp.com',
-    item_api_url : 'https://mintic-c4-proj-item-be.herokuapp.com'
+    auth_api_url: process.env.AUTH_API_URL,
+    item_api_url: process.env.ITEM_API_URL
 };

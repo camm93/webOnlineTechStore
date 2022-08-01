@@ -24,33 +24,33 @@ const authTypes = gql `
     }
 
     type UserDetail {
-        id      : Int!
+        id: Int!
         username: String!
-        name    : String!
-        surname : String!
-        email   : String!
+        name: String!
+        surname: String!
+        email: String!
     }
 
     input UserUpdate {
-        id      : Int!
+        id: Int!
         password: String!
         username: String!
-        name    : String!
-        surname : String!
-        email   : String!
-    }
-
-    type Query {
-        userDetailById(userId: Int!):UserDetail!
+        name: String!
+        surname: String!
+        email: String!
     }
 
     type Mutation {
-        signUpUser(userInput:SignUpInput)   :Tokens!
-        logIn(credentials:CredentialsInput!):Tokens!
-        refreshToken(refresh:String!)  :Access!
-        updateUser(user:UserUpdate!)        : UserDetail!
-        deleteUser(userId:Int!)          : String!
+        deleteUser(userId: Int!): String!
+        logIn(credentials: CredentialsInput!): Tokens!
+        refreshToken(refresh: String!): Access!
+        signUpUser(userInput: SignUpInput!): Tokens!
+        updateUser(user: UserUpdate!): UserDetail!
     }
-    `;
+
+    type Query {
+        userDetailById(userId: Int!): UserDetail!
+    }
+`;
 
 module.exports = authTypes;

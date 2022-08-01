@@ -1,19 +1,19 @@
-const { ApolloError }   = require('apollo-server');
-const serverConfig      = require('../server');
-const fetch             = require('node-fetch');
+const { ApolloError } = require('apollo-server');
+const fetch = require('node-fetch');
+const serverConfig = require('../server');
 
 const authentication = async ({req}) => {
     const token = req.headers.authorization || '';
 
     if (token == ''){
-        return { userIdToken : null}
+        return {tokenUserId: null}
     }
     else {
         try {
             let requestOptions = {
-                method  : 'POST', 
-                headers : {"Content-type": "application/json"},
-                body    : JSON.stringify({ token }), 
+                method: 'POST', 
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify({token}), 
                 redirect: 'follow'
             };
 
@@ -24,10 +24,10 @@ const authentication = async ({req}) => {
 
             if (response.status != 200){
                 console.log(response)
-                throw new ApolloError(`Sesión fallida o inactiva - ${401}` + response.status, 401)
+                throw new ApolloError(`Invalid Session - ${401}` + response.status, 401)
             }
 
-            return { userIdToken: (await response.json()).UserId }
+            return {tokenUserId: (await response.json()).UserId}
         }
         catch (error) {
             throw new ApolloError(`Error in token validation: ${500}: ${error}`, 500);

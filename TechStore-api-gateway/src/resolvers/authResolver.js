@@ -1,7 +1,7 @@
 const usersResolver = {
     Query: {
-        userDetailById: async (_, { userId }, { dataSources, userIdToken }) => {
-            if (userId == userIdToken){
+        userDetailById: async (_, { userId }, { dataSources, tokenUserId }) => {
+            if (userId == tokenUserId){
                 return await dataSources.authAPI.getUser(userId);
             }
             else{
@@ -10,8 +10,13 @@ const usersResolver = {
         }
     },
     Mutation: {
-        signUpUser: async (_, { userInput }, { dataSources }) => {
-            return await dataSources.authAPI.createUser(userInput);
+        deleteUser: async(_, { userId }, { dataSources, tokenUserId }) => {
+            if (userId == tokenUserId){
+                return await dataSources.authAPI.deleteUser(userId);
+            }
+            else{
+                return null;
+            }
         },
 
         logIn: async (_, { credentials }, { dataSources }) => {
@@ -22,24 +27,18 @@ const usersResolver = {
             return await dataSources.authAPI.refreshToken(refresh);
         },
 
-        updateUser: async(_, { user }, { dataSources, userIdToken }) => {
-            if (user.id == userIdToken){
+        signUpUser: async (_, { userInput }, { dataSources }) => {
+            return await dataSources.authAPI.createUser(userInput);
+        },
+
+        updateUser: async(_, { user }, { dataSources, tokenUserId }) => {
+            if (user.id == tokenUserId){
                 return await dataSources.authAPI.updateUser(user);
             }
             else {
                 return null;
             }
         },
-        
-        deleteUser: async(_, { userId }, { dataSources, userIdToken }) => {
-            if (userId == userIdToken){
-                return await dataSources.authAPI.deleteUser(userId);
-            }
-            else{
-                return null;
-            }
-        },
-
     }
 };
 
