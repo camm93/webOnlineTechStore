@@ -33,3 +33,4 @@ build/
 .vscode/
 applicationProperties.txt
 src/main/resources/application.properties
+**/deployment.bat
