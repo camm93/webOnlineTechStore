@@ -6,24 +6,24 @@ public class Item {
 
     @Id
     private Integer ref;
-    private String  name;
-    private String  category;
+    private String name;
+    private String category;
     private Integer price;
     private Integer inStock;
-    private String  warranty;
-    private String  details;
-    private String  image;
+    private String warranty;
+    private String details;
+    private String image;
 
     public Item(Integer ref, String name, String category, Integer price, Integer inStock, String warranty,
                 String details, String image){
-        this.ref        = ref;
-        this.name       = name;
-        this.category   = category;
-        this.price      = price;
-        this.inStock    = inStock;
-        this.warranty   = warranty;
-        this.details    = details;
-        this.image      = image;
+        this.ref = ref;
+        this.name = name;
+        this.category = category;
+        this.price  = price;
+        this.inStock = inStock;
+        this.warranty = warranty;
+        this.details = details;
+        this.image = image;
     }
 
     public Integer getRef(){

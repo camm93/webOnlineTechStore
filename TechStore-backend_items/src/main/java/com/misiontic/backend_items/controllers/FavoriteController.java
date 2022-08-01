@@ -30,8 +30,8 @@ public class FavoriteController {
         Item itemFavorite = itemRepository.findById(favorite.getProdRef()).orElse(null);
 
         if (itemFavorite == null){
-            throw new ItemNotFoundException("No se encontró un producto con la referencia " +
-                    favorite.getProdRef() + ", operación rechazada.");
+            throw new ItemNotFoundException("Item reference " + favorite.getProdRef() +
+                    " was not found. Operation rejected.");
         }
 
         if ( favorite.getProdUnits() == null){
@@ -39,8 +39,8 @@ public class FavoriteController {
         }
 
         if ((itemFavorite.getInStock() - favorite.getProdUnits()) < 0){
-            throw new InsufficientStockException("No hay suficientes unidades del producto " + itemFavorite.getName() +
-                    " con referencia " + itemFavorite.getRef() + ", operación rechazada.");
+            throw new InsufficientStockException("Not enough stock of product " + itemFavorite.getName() +
+                    " with reference " + itemFavorite.getRef() + ". Operation rejected.");
         }
 
         itemFavorite.setInStock(itemFavorite.getInStock() - favorite.getProdUnits());
@@ -54,8 +54,7 @@ public class FavoriteController {
     Favorite getFavorite(@PathVariable String id){
         Favorite userFavorite = favoriteRepository.findById(id).orElse(null);
         if (userFavorite == null){
-            throw new FavoriteNotFoundException("El elemento seleccionado no se encuentra dentro de los " +
-                    "productos guardados, operación rechazada.");
+            throw new FavoriteNotFoundException("Product not found in saved items. Operation rejected.");
         }
         return userFavorite;
     }
@@ -64,7 +63,7 @@ public class FavoriteController {
     List<Favorite> getUserFavorites(@PathVariable String username){
         List<Favorite> userFavorite = favoriteRepository.findByUsername(username);
         if (userFavorite.isEmpty()){
-            throw new FavoriteNotFoundException("No se encontraron productos guardados por el usuario " + username);
+            throw new FavoriteNotFoundException("User has no saved items");
         }
         return userFavorite;
     }
@@ -76,18 +75,17 @@ public class FavoriteController {
         Item itemUpdate = itemRepository.findById(favUpdate.getProdRef()).orElse(null);
 
         if (favUpdate == null) {
-            throw new FavoriteNotFoundException("El elemento seleccionado no se encuentra dentro de los " +
-                    "productos guardados, operación rechazada.");
+            throw new FavoriteNotFoundException("Product not found in saved items. Operation rejected.");
         }
 
         if (itemUpdate == null){
-            throw new ItemNotFoundException("No se encontró un producto con la referencia " +
-                    favUpdate.getProdRef() + ", operación rechazada.");
+            throw new ItemNotFoundException("Item reference " + favUpdate.getProdRef() +
+                    " was not found. Operation rejected.");
         }
 
         if ((itemUpdate.getInStock() + favUpdate.getProdUnits() - favorite.getProdUnits() ) < 0 ){
-            throw new InsufficientStockException("No hay suficientes unidades del producto " + itemUpdate.getName() +
-                    " con referencia " + itemUpdate.getRef() + ", operación rechazada.");
+            throw new InsufficientStockException("Not enough stock of product " + itemUpdate.getName() +
+                    " with reference " + itemUpdate.getRef() + ". Operation rejected.");
         }
 
         itemUpdate.setInStock(itemUpdate.getInStock() + favUpdate.getProdUnits() - favorite.getProdUnits());
@@ -105,19 +103,18 @@ public class FavoriteController {
         Item item = itemRepository.findById(favorite.getProdRef()).orElse(null);
 
         if (favorite == null) {
-            throw new FavoriteNotFoundException("El elemento seleccionado no se encuentra dentro de los " +
-                    "productos guardados, operación rechazada.");
+            throw new FavoriteNotFoundException("Product not found in saved items. Operation rejected.");
         }
 
         if (item == null){
-            throw new ItemNotFoundException("No se encontró un producto con la referencia " +
-                    favorite.getProdRef() + ", operación rechazada.");
+            throw new ItemNotFoundException("Item reference " +
+                    favorite.getProdRef() + " was not found. Operation rejected.");
         }
 
         item.setInStock(item.getInStock() + favorite.getProdUnits());
         itemRepository.save(item);
 
         favoriteRepository.deleteById(id);
-        return "Borrado exitoso";
+        return "Delete Successful";
     }
 }

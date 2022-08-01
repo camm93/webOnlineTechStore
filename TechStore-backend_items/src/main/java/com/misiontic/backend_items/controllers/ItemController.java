@@ -39,7 +39,7 @@ public class ItemController {
     @GetMapping("/items/id/{ref}")
     Item getItem(@PathVariable Integer ref){
         return itemRepository.findById(ref)
-                .orElseThrow(() -> new ItemNotFoundException("Item reference was not found: " + ref));
+                .orElseThrow(() -> new ItemNotFoundException("Item reference " + ref + "was not found"));
     }
 
     @GetMapping("/items/categories/{category}")
@@ -58,8 +58,8 @@ public class ItemController {
         Item itemUpdate = itemRepository.findById(item.getRef()).orElse(null);
 
         if (itemUpdate == null) {
-            throw new ItemNotFoundException("No se encontró un producto con la referencia " +
-                    itemUpdate.getRef() + ", operación rechazada.");
+            throw new ItemNotFoundException("Item reference was not found: " +
+                    itemUpdate.getRef() + ". Operation rejected.");
         }
         if (item.getInStock() == null){
             itemUpdate.setPrice(item.getPrice());
@@ -69,8 +69,8 @@ public class ItemController {
             itemUpdate.setInStock(item.getInStock());
             return itemRepository.save(itemUpdate);
         } else {
-            throw new InsufficientStockException("Ingrese un número válido de unidades del producto " +
-                    itemUpdate.getName() + " con referencia " + itemUpdate.getRef() + ", operación rechazada.");
+            throw new InsufficientStockException("Enter a valid number of units for product " +
+                    itemUpdate.getName() + " with reference " + itemUpdate.getRef() + ". Operation rejected.");
         }
     }
 
@@ -80,12 +80,11 @@ public class ItemController {
         Item item = itemRepository.findById(ref).orElse(null);
 
         if (item == null){
-            throw new ItemNotFoundException("No se encontró un producto con la referencia " +
-                    ref + ", operación rechazada.");
+            throw new ItemNotFoundException("Item reference " + ref + "was not found. Operation rejected.");
         }
 
         if (favorite == null) {
-            throw new FavoriteNotFoundException("No hay productos con referencia: " + ref + " guardados en favoritos.");
+            throw new FavoriteNotFoundException("There are no saved products with reference: " + ref);
         }
         // this will delete a given item by its Id - ref
         itemRepository.deleteById(ref);
@@ -93,6 +92,6 @@ public class ItemController {
         // This should remove all elements in favorites that include the item deleted above
         favoriteRepository.deleteAll(favorite);
 
-        return "Borrado exitoso";
+        return "Delete Successful";
     }
 }

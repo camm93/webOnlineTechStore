@@ -8,27 +8,27 @@ import java.util.Date;
 public class Favorite {
 
     @Id
-    private String  id;
-    private String  username;
+    private String id;
+    private String username;
     private Integer prodRef;
-    private String  prodName;
-    private String  prodCategory;
+    private String prodName;
+    private String prodCategory;
     private Integer prodPrice;
     private Integer prodUnits;
-    private Date    date;
-    private String  image;
+    private Date date;
+    private String image;
 
     public Favorite(String id, String username, Integer prodRef, String prodName, String prodCategory,
                     Integer prodPrice, Date date, Integer prodUnits, String image){
-        this.id             = id;
-        this.username       = username;
-        this.prodRef        = prodRef;
-        this.prodName       = prodName;
-        this.prodCategory   = prodCategory;
-        this.prodPrice      = prodPrice;
-        this.prodUnits      = prodUnits;
-        this.date           = date;
-        this.image          = image;
+        this.id = id;
+        this.username = username;
+        this.prodRef = prodRef;
+        this.prodName = prodName;
+        this.prodCategory = prodCategory;
+        this.prodPrice = prodPrice;
+        this.prodUnits = prodUnits;
+        this.date = date;
+        this.image = image;
     }
 
     public String getId() {
